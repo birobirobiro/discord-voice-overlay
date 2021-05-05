@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      input,
+      textarea,
+      button {
+        font-family: sans-serif;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      #main {
+        padding-top: 16px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #list {
+        list-style: none;
+      }
+
+      #list li + li {
+        margin-top: 8px;
+      }
+
+      .memberContainer {
+        display: flex;
+        align-items: center;
+      }
+
+      .memberContainer img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main">
+      <ul id="list"></ul>
+    </main>
+
+    <script type="text/javascript" src="./lib/discord.11.6.4.min.js"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

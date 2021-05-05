@@ -1,0 +1,15 @@
+{
+  "name": "discord-voice-overlay",
+  "version": "1.0.0",
+  "main": "src/electron.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron --enable-transparent-visuals .",
+    "build": "electron-packager . --icon assets/webcam --overwrite --out=packages"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^12.0.5",
+    "electron-packager": "^15.2.0"
+  }
+}
