@@ -21,6 +21,7 @@ function voiceStateUpdate(oldMember, updatedMember) {
 
   if (isMe && exitedChannel) {
     listTag.innerHTML = '';
+    activeVoiceChannelId = '';
     return;
   } else if (isMe) {
     activeVoiceChannelId = updatedMember.voiceChannelID;

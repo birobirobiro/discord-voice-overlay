@@ -4,8 +4,8 @@
   "main": "src/electron.js",
   "license": "MIT",
   "scripts": {
-    "start": "electron --enable-transparent-visuals .",
-    "build": "electron-packager . --icon assets/webcam --overwrite --out=packages"
+    "start": "electron .",
+    "build": "electron-packager . --overwrite --out=packages"
   },
   "dependencies": {},
   "devDependencies": {
