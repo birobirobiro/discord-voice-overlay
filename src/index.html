@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Discord voice overlay</title>
     <style>
       * {
         margin: 0;
@@ -24,8 +24,25 @@
         cursor: pointer;
       }
 
+      header {
+        display: flex;
+        padding: 0 4px 0 0;
+        justify-content: flex-end;
+      }
+
+      #close-button {
+        border: none;
+        background: none;
+        font-size: 0;
+        opacity: 0;
+      }
+
+      #close-button img {
+        height: 16px;
+        width: 16px;
+      }
+
       #main {
-        padding-top: 16px;
         display: flex;
         justify-content: center;
       }
@@ -51,11 +68,38 @@
     </style>
   </head>
   <body>
+    <header>
+      <button type="button" id="close-button">
+        <img src="./assets/close.png" alt="Close" />
+      </button>
+    </header>
+
     <main id="main">
       <ul id="list"></ul>
     </main>
 
     <script type="text/javascript" src="./lib/discord.11.6.4.min.js"></script>
-    <script type="module" src="./script.js"></script>
+    <script type="module" async>
+      import './script.js';
+      const { ipcRenderer } = require('electron');
+
+      const closeButton = document.getElementById('close-button');
+
+      closeButton.addEventListener('mouseenter', () => {
+        ipcRenderer.send('on-mouse-enter-close-button');
+
+        closeButton.style.opacity = 1;
+      });
+
+      closeButton.addEventListener('mouseout', () => {
+        ipcRenderer.send('on-mouse-leave-close-button');
+
+        closeButton.style.opacity = 0;
+      });
+
+      closeButton.addEventListener('click', () => {
+        ipcRenderer.send('close');
+      });
+    </script>
   </body>
 </html>

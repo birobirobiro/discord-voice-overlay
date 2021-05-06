@@ -7,9 +7,8 @@
     "start": "electron .",
     "build": "electron-packager . --overwrite --out=packages"
   },
-  "dependencies": {},
   "devDependencies": {
-    "electron": "^12.0.5",
+    "electron": "11.4.5",
     "electron-packager": "^15.2.0"
   }
 }
